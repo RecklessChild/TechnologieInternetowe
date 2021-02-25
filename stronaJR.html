@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kalkulator</title>
+<meta charset="utf-8" />
+<style type="text/css">
+
+h1 {
+    text-align: center;
+}
+
+
+#kalkulator {
+    background: #7841ff;
+    margin: 0 auto;
+    padding: 50px 50px 50px 50px;
+    width: 200px;
+    text-align: center;
+}
+#kalkulator button {
+    padding: 15px;
+    width: 40px;
+}
+#kalkulator input[type="text"] {
+    padding: 10px;
+    width: 150px;
+    margin-bottom: 5px;
+
+
+}
+</style>
+<script>
+alert ("Jakub Rosiak zaprasza na swoją stronę!");
+alert ("Zawiera ona kalkulator wykonany na potrzeby zaliczenia");
+
+function getTime() {
+    var teraz = new Date;
+    var wynik = teraz.getHours() + ":" + teraz.getMinutes();
+ 
+    return(wynik);
+}
+document.write("Jest godzina " + getTime());
+//prosty skrypt wyświetlający godzinę na stronie, pobiera aktualny czas w formacie godzin i minut, wyświetla na początku strony
+
+function kalkulator(operator) 
+{
+    var a = document.getElementById('a').value;
+    var b = document.getElementById('b').value;  
+ 
+    switch(operator) 
+    {
+        case '+':
+            var result = parseFloat(a) + parseFloat(b);         
+        break;
+        case '-':
+            var result = parseFloat(a) - parseFloat(b);         
+        break;  
+        case 'x':
+            var result = parseFloat(a) * parseFloat(b);         
+        break;  
+        case '/':
+            var result = parseFloat(a) / parseFloat(b);         
+        break;    
+    }
+ 
+    document.getElementById('result').value = '= ' + result;
+
+    //skrypt zapewniający działanie kalkulatora z podstawowymi funkcjami. Wiśnięcie dowolnego przycisku pobiera liczby z pól tekstowych i zwraca wynik w następnym polu. Instrukcja switch sprawdza który przycisk został wciśnięty i wykonuje odpowiednie działanie
+}
+</script>
+</head>
+<body style="background-color:#8EE902;">
+<h1> Kalkulator </h1>
+
+<form id="kalkulator">
+    <input type="text" id="a" placeholder="wprowadź 1 liczbe" />
+    <input type="text" id="b" placeholder="wprowadź 2 liczbe" />
+    <input type="text" id="result" placeholder="=" disabled="disabled" />
+    <button type="button" onclick="kalkulator(this.innerHTML)">+</button> 
+    <button type="button" onclick="kalkulator(this.innerHTML)">-</button>
+    <button type="button" onclick="kalkulator(this.innerHTML)">x</button>   
+    <button type="button" onclick="kalkulator(this.innerHTML)">/</button>
+
+</form>
+</body>
+</html>
